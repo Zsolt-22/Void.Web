@@ -19,7 +19,9 @@ const HomeContent = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const url = keyword ? `http://localhost:5000/api/products?keyword=${keyword}` : 'http://localhost:5000/api/products';
+        const url = keyword 
+? `${process.env.NEXT_PUBLIC_API_URL}/api/products?keyword=${keyword}` 
+: `${process.env.NEXT_PUBLIC_API_URL}/api/products`;
         const res = await fetch(url);
         const data = await res.json();
         
