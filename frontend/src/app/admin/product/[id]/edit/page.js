@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '../../../../context/AuthContext';
-import Message from '../../../../components/ui/Message';
-import Loader from '../../../../components/ui/Loader';
+import { useAuth } from '@/context/AuthContext';
+import Message from '@/components/ui/Message';
+import Loader from '@/components/ui/Loader';
 import { use } from 'react';
 
 const ProductEditScreen = ({ params }) => {
