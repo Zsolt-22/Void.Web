@@ -5,7 +5,7 @@ import Footer from '../components/layout/Footer';
 import './globals.css';
 
 export const metadata = {
-  title: 'Botanik Shop | Best Products Online',
+  title: 'Void Store | Best Products Online',
   description: 'Find the best electronics, gadgets, and gear to supercharge your life.',
 };
 
