@@ -3,8 +3,8 @@ const bcrypt = require('bcryptjs');
 const users = [
   {
     name: 'Admin User',
-    email: 'admin@example.com',
-    password: 'password123', // Will be hashed in pre-save
+    email: 'z4340742@gmail.com',
+    password: 'Aatrox22', // Will be hashed in pre-save
     isAdmin: true,
   },
   {
