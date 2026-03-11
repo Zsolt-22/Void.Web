@@ -38,10 +38,10 @@ const HomeContent = () => {
 
   return (
     <>
-      <div className="bg-indigo-700 text-white pb-16 pt-10">
+      <div className="bg-gradient-to-br from-black via-purple-950 to-purple-900 text-center py-20 shadow-[0_0_80px_rgba(168,85,247,0.4)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-            Welcome to Void Store
+             Void store'ye hoşgeldiniz.
           </h1>
           <p className="text-xl md:text-2xl font-light text-indigo-100 max-w-2xl">
             Find the best electronics, gadgets, and gear to supercharge your life.
