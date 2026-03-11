@@ -30,7 +30,7 @@ const RegisterScreen = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setMessage('Passwords do not match');
+      setMessage('Şifreler eşleşmiyor');
       return;
     }
 
@@ -39,27 +39,27 @@ const RegisterScreen = () => {
 
     const res = await register(name, email, password);
     if (!res.success) {
-      setMessage(res.message || 'Failed to register');
+      setMessage(res.message || 'Kayıt başarısız');
       setIsSubmitting(false);
     }
   };
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold mb-6 text-gray-800 uppercase tracking-wide">Register</h1>
+      <h1 className="text-2xl font-bold mb-6 text-gray-800 uppercase tracking-wide">Kayıt Ol</h1>
       {message && <Message variant="danger">{message}</Message>}
       {isSubmitting && <Loader />}
 
       <form onSubmit={submitHandler}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-            Name
+            İsim
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-indigo-500"
             id="name"
             type="text"
-            placeholder="Enter name"
+            placeholder="İsim girin"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -68,13 +68,13 @@ const RegisterScreen = () => {
 
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-            Email Address
+            E-posta Adresi
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-indigo-500"
             id="email"
             type="email"
-            placeholder="Enter email"
+            placeholder="E-posta girin"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -83,13 +83,13 @@ const RegisterScreen = () => {
 
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-            Password
+            Şifre
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-indigo-500"
             id="password"
             type="password"
-            placeholder="Enter password"
+            placeholder="Şifre girin"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -98,7 +98,7 @@ const RegisterScreen = () => {
 
         <div className="mb-6">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="confirmPassword">
-            Confirm Password
+            Şifreyi Onayla
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-indigo-500"
@@ -117,15 +117,15 @@ const RegisterScreen = () => {
             type="submit"
             disabled={isSubmitting}
           >
-            Register
+            Kayıt Ol
           </button>
         </div>
       </form>
 
       <div className="mt-6 text-center text-sm text-gray-600">
-        Have an Account?{' '}
+        Hesabınız var mı?{' '}
         <Link href={`/login?redirect=${redirect}`} className="text-indigo-600 hover:text-indigo-800 font-semibold">
-          Login Here
+          Buradan Giriş Yapın
         </Link>
       </div>
     </div>

@@ -15,14 +15,14 @@ const CartScreen = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8 uppercase tracking-wide">Shopping Cart</h1>
+      <h1 className="text-3xl font-bold text-gray-900 mb-8 uppercase tracking-wide">Alışveriş Sepeti</h1>
       
       {cartItems.length === 0 ? (
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4">
           <p className="text-blue-700">
-            Your cart is empty.{' '}
+            Sepetiniz boş.{' '}
             <Link href="/" className="font-semibold underline hover:text-blue-800">
-              Go Back
+              Geri Dön
             </Link>
           </p>
         </div>
@@ -55,7 +55,7 @@ const CartScreen = () => {
                     </div>
                     <div className="flex flex-1 items-end justify-between mt-4">
                       <div className="flex items-center">
-                        <label htmlFor={`qty-${item._id}`} className="mr-2 text-sm text-gray-600">Qty:</label>
+                        <label htmlFor={`qty-${item._id}`} className="mr-2 text-sm text-gray-600">Adet:</label>
                         <select
                           id={`qty-${item._id}`}
                           className="border border-gray-300 rounded p-1"
@@ -78,7 +78,7 @@ const CartScreen = () => {
                         <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
-                        Remove
+                        Kaldır
                       </button>
                     </div>
                   </div>
@@ -90,7 +90,7 @@ const CartScreen = () => {
           <div className="md:w-1/3">
             <div className="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-100">
               <h2 className="text-lg font-medium text-gray-900 mb-4">
-                Subtotal ({cartItems.reduce((acc, item) => acc + Number(item.qty), 0)}) items
+                Ara Toplam ({cartItems.reduce((acc, item) => acc + Number(item.qty), 0)}) ürün
               </h2>
               <p className="text-3xl font-bold text-gray-900 mb-6">
                 ${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
@@ -102,7 +102,7 @@ const CartScreen = () => {
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
               >
-                Proceed to Checkout
+                Ödemeye Geç
               </button>
             </div>
           </div>

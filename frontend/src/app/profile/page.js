@@ -56,7 +56,7 @@ const ProfileScreen = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
+      setError('Şifreler eşleşmiyor');
       return;
     }
     
@@ -96,52 +96,52 @@ const ProfileScreen = () => {
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-1/3">
-          <h2 className="text-2xl font-bold mb-6 text-gray-800 uppercase tracking-wide">User Profile</h2>
+          <h2 className="text-2xl font-bold mb-6 text-gray-800 uppercase tracking-wide">Kullanıcı Profili</h2>
           
           {error && <Message variant="danger">{error}</Message>}
-          {success && <Message variant="success">Profile Updated</Message>}
+          {success && <Message variant="success">Profil Güncellendi</Message>}
           {loading && <Loader />}
 
           <form onSubmit={submitHandler} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">Name</label>
+              <label className="block text-gray-700 text-sm font-bold mb-2">İsim</label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-indigo-500"
                 type="text"
-                placeholder="Enter name"
+                placeholder="İsim girin"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
+              <label className="block text-gray-700 text-sm font-bold mb-2">E-posta Adresi</label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-indigo-500"
                 type="email"
-                placeholder="Enter email"
+                placeholder="E-posta girin"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
+              <label className="block text-gray-700 text-sm font-bold mb-2">Şifre</label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-indigo-500"
                 type="password"
-                placeholder="Enter new password"
+                placeholder="Yeni şifre girin"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
 
             <div className="mb-6">
-              <label className="block text-gray-700 text-sm font-bold mb-2">Confirm Password</label>
+              <label className="block text-gray-700 text-sm font-bold mb-2">Şifreyi Onayla</label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-indigo-500"
                 type="password"
-                placeholder="Confirm new password"
+                placeholder="Yeni şifreyi onaylayın"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
@@ -151,13 +151,13 @@ const ProfileScreen = () => {
               className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded w-full transition"
               type="submit"
             >
-              Update
+              Güncelle
             </button>
           </form>
         </div>
 
         <div className="md:w-2/3">
-          <h2 className="text-2xl font-bold mb-6 text-gray-800 uppercase tracking-wide">My Orders</h2>
+          <h2 className="text-2xl font-bold mb-6 text-gray-800 uppercase tracking-wide">Siparişlerim</h2>
           
           {ordersLoading ? (
             <Loader />
@@ -169,10 +169,10 @@ const ProfileScreen = () => {
                 <thead className="bg-gray-50">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Paid</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Delivered</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tarih</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Toplam</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ödendi</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Teslim Edildi</th>
                     <th className="px-6 py-3"></th>
                   </tr>
                 </thead>
@@ -201,7 +201,7 @@ const ProfileScreen = () => {
                           onClick={() => router.push(`/order/${order._id}`)}
                           className="text-indigo-600 hover:text-indigo-900 bg-indigo-50 px-3 py-1 rounded"
                         >
-                          Details
+                          Detaylar
                         </button>
                       </td>
                     </tr>

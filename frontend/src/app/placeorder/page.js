@@ -60,7 +60,7 @@ const PlaceOrderScreen = () => {
       const data = await res.json();
       
       if (!res.ok) {
-        throw new Error(data.message || 'Error placing order');
+        throw new Error(data.message || 'Sipariş oluşturulurken hata oluştu');
       }
 
       clearCart();
@@ -78,37 +78,37 @@ const PlaceOrderScreen = () => {
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <div className="flex justify-center mb-8">
         <div className="flex items-center text-sm font-medium">
-          <span className="text-gray-400">Shipping</span>
+          <span className="text-gray-400">Teslimat</span>
           <span className="mx-2 text-gray-400">&gt;</span>
-          <span className="text-gray-400">Payment</span>
+          <span className="text-gray-400">Ödeme</span>
           <span className="mx-2 text-gray-400">&gt;</span>
-          <span className="text-indigo-600 font-bold border-b-2 border-indigo-600 pb-1">Place Order</span>
+          <span className="text-indigo-600 font-bold border-b-2 border-indigo-600 pb-1">Sipariş Ver</span>
         </div>
       </div>
 
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-2/3">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-            <h2 className="text-xl font-semibold mb-4 text-gray-800 uppercase tracking-wider">Shipping</h2>
+            <h2 className="text-xl font-semibold mb-4 text-gray-800 uppercase tracking-wider">Teslimat</h2>
             <p className="text-gray-700">
-              <strong className="font-medium">Address: </strong>
+              <strong className="font-medium">Adres: </strong>
               {shippingAddress.address}, {shippingAddress.city}{' '}
               {shippingAddress.postalCode}, {shippingAddress.country}
             </p>
           </div>
 
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-            <h2 className="text-xl font-semibold mb-4 text-gray-800 uppercase tracking-wider">Payment Method</h2>
+            <h2 className="text-xl font-semibold mb-4 text-gray-800 uppercase tracking-wider">Ödeme Yöntemi</h2>
             <p className="text-gray-700">
-              <strong className="font-medium">Method: </strong>
+              <strong className="font-medium">Yöntem: </strong>
               {paymentMethod}
             </p>
           </div>
 
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h2 className="text-xl font-semibold mb-4 text-gray-800 uppercase tracking-wider">Order Items</h2>
+            <h2 className="text-xl font-semibold mb-4 text-gray-800 uppercase tracking-wider">Sipariş Edilen Ürünler</h2>
             {cartItems.length === 0 ? (
-              <Message>Your cart is empty</Message>
+              <Message>Sepetiniz boş</Message>
             ) : (
               <ul className="divide-y divide-gray-200">
                 {cartItems.map((item, index) => (
@@ -133,23 +133,23 @@ const PlaceOrderScreen = () => {
 
         <div className="md:w-1/3">
           <div className="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200 sticky top-24">
-            <h2 className="text-xl font-semibold mb-6 text-gray-800 uppercase tracking-wider">Order Summary</h2>
+            <h2 className="text-xl font-semibold mb-6 text-gray-800 uppercase tracking-wider">Sipariş Özeti</h2>
             
             <div className="space-y-4">
               <div className="flex justify-between text-gray-600">
-                <span>Items</span>
+                <span>Ürünler</span>
                 <span>${itemsPrice.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-gray-600">
-                <span>Shipping</span>
+                <span>Kargo</span>
                 <span>${shippingPrice.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-gray-600">
-                <span>Tax</span>
+                <span>Vergi</span>
                 <span>${taxPrice.toFixed(2)}</span>
               </div>
               <div className="border-t border-gray-300 pt-4 flex justify-between font-bold text-lg text-gray-900">
-                <span>Total</span>
+                <span>Toplam</span>
                 <span>${totalPrice.toFixed(2)}</span>
               </div>
             </div>
@@ -162,7 +162,7 @@ const PlaceOrderScreen = () => {
               disabled={cartItems.length === 0 || loading}
               onClick={placeOrderHandler}
             >
-              {loading ? 'Processing...' : 'Place Order'}
+              {loading ? 'İşleniyor...' : 'Siparişi Ver'}
             </button>
           </div>
         </div>

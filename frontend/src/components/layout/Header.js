@@ -40,7 +40,7 @@ const Header = () => {
               type="text"
               name="q"
               onChange={(e) => setKeyword(e.target.value)}
-              placeholder="Search products..."
+              placeholder="Ürün ara..."
               className="w-full px-4 py-1 text-gray-900 rounded-l-md focus:outline-none"
             />
             <button type="submit" className="bg-purple-700 px-4 py-1 flex items-center justify-center rounded-r-md hover:bg-purple-600">
@@ -54,7 +54,7 @@ const Header = () => {
               <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
-              Cart
+              Sepet
               {cartCount > 0 && (
                 <span className="ml-1 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
                   {cartCount}
@@ -79,16 +79,16 @@ const Header = () => {
                 {isDropdownOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 text-gray-700">
                     <Link href="/profile" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setIsDropdownOpen(false)}>
-                      Profile
+                      Profil
                     </Link>
                     {userInfo.isAdmin && (
                       <>
                         <div className="border-t border-gray-100"></div>
-                        <div className="px-4 py-2 text-xs font-bold text-gray-500 uppercase tracking-wider">Admin</div>
-                        <Link href="/admin/dashboard" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setIsDropdownOpen(false)}>Dashboard</Link>
-                        <Link href="/admin/userlist" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setIsDropdownOpen(false)}>Users</Link>
-                        <Link href="/admin/productlist" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setIsDropdownOpen(false)}>Products</Link>
-                        <Link href="/admin/orderlist" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setIsDropdownOpen(false)}>Orders</Link>
+                        <div className="px-4 py-2 text-xs font-bold text-gray-500 uppercase tracking-wider">Yönetici</div>
+                        <Link href="/admin/dashboard" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setIsDropdownOpen(false)}>Panel</Link>
+                        <Link href="/admin/userlist" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setIsDropdownOpen(false)}>Kullanıcılar</Link>
+                        <Link href="/admin/productlist" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setIsDropdownOpen(false)}>Ürünler</Link>
+                        <Link href="/admin/orderlist" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setIsDropdownOpen(false)}>Siparişler</Link>
                       </>
                     )}
                     <button
@@ -98,7 +98,7 @@ const Header = () => {
                       }}
                       className="block w-full text-left px-4 py-2 hover:bg-gray-100"
                     >
-                      Logout
+                      Çıkış Yap
                     </button>
                   </div>
                 )}
@@ -108,7 +108,7 @@ const Header = () => {
                 <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
-                Sign In
+                Giriş Yap
               </Link>
             )}
           </nav>
@@ -136,24 +136,24 @@ const Header = () => {
         <div className="md:hidden bg-purple-950">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link href="/cart" className="block px-3 py-2 rounded-md hover:bg-purple-800">
-              Cart {cartCount > 0 && `(${cartCount})`}
+              Sepet {cartCount > 0 && `(${cartCount})`}
             </Link>
             {userInfo ? (
               <>
-                <Link href="/profile" className="block px-3 py-2 rounded-md hover:bg-purple-800">Profile</Link>
+                <Link href="/profile" className="block px-3 py-2 rounded-md hover:bg-purple-800">Profil</Link>
                 {userInfo.isAdmin && (
                   <>
-                    <Link href="/admin/userlist" className="block px-3 py-2 rounded-md hover:bg-purple-800 text-purple-300">Admin: Users</Link>
-                    <Link href="/admin/productlist" className="block px-3 py-2 rounded-md hover:bg-purple-800 text-purple-300">Admin: Products</Link>
-                    <Link href="/admin/orderlist" className="block px-3 py-2 rounded-md hover:bg-purple-800 text-purple-300">Admin: Orders</Link>
+                    <Link href="/admin/userlist" className="block px-3 py-2 rounded-md hover:bg-purple-800 text-purple-300">Admin: Kullanıcılar</Link>
+                    <Link href="/admin/productlist" className="block px-3 py-2 rounded-md hover:bg-purple-800 text-purple-300">Admin: Ürünler</Link>
+                    <Link href="/admin/orderlist" className="block px-3 py-2 rounded-md hover:bg-purple-800 text-purple-300">Admin: Siparişler</Link>
                   </>
                 )}
                 <button onClick={logout} className="block w-full text-left px-3 py-2 rounded-md hover:bg-purple-800">
-                  Logout
+                  Çıkış Yap
                 </button>
               </>
             ) : (
-              <Link href="/login" className="block px-3 py-2 rounded-md hover:bg-purple-800">Sign In</Link>
+              <Link href="/login" className="block px-3 py-2 rounded-md hover:bg-purple-800">Giriş Yap</Link>
             )}
           </div>
         </div>

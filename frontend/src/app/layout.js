@@ -5,13 +5,13 @@ import Footer from '../components/layout/Footer';
 import './globals.css';
 
 export const metadata = {
-  title: 'Void Store | Best Products Online',
-  description: 'Find the best electronics, gadgets, and gear to supercharge your life.',
+  title: 'Void Store | En İyi Ürünler Online',
+  description: 'Hayatınızı kolaylaştıracak en iyi elektronik, gadget ve ekipmanları bulun.',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="tr">
       <body className="bg-gray-50 flex flex-col min-h-screen">
         <AuthProvider>
           <CartProvider>

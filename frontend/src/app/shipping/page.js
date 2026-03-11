@@ -34,26 +34,26 @@ const ShippingScreen = () => {
       {/* Checkout Steps visualization could go here */}
       <div className="flex justify-center mb-8">
         <div className="flex items-center text-sm font-medium">
-          <span className="text-indigo-600 font-bold border-b-2 border-indigo-600 pb-1">Shipping</span>
+          <span className="text-indigo-600 font-bold border-b-2 border-indigo-600 pb-1">Teslimat</span>
           <span className="mx-2 text-gray-400">&gt;</span>
-          <span className="text-gray-400">Payment</span>
+          <span className="text-gray-400">Ödeme</span>
           <span className="mx-2 text-gray-400">&gt;</span>
-          <span className="text-gray-400">Place Order</span>
+          <span className="text-gray-400">Sipariş Ver</span>
         </div>
       </div>
 
-      <h1 className="text-2xl font-bold mb-6 text-gray-800 uppercase tracking-wide">Shipping Address</h1>
+      <h1 className="text-2xl font-bold mb-6 text-gray-800 uppercase tracking-wide">Teslimat Adresi</h1>
       
       <form onSubmit={submitHandler}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="address">
-            Address
+            Adres
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-indigo-500"
             id="address"
             type="text"
-            placeholder="Enter address"
+            placeholder="Adresi girin"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             required
@@ -62,13 +62,13 @@ const ShippingScreen = () => {
 
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="city">
-            City
+            Şehir
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-indigo-500"
             id="city"
             type="text"
-            placeholder="Enter city"
+            placeholder="Şehri girin"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             required
@@ -77,13 +77,13 @@ const ShippingScreen = () => {
 
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="postalCode">
-            Postal Code
+            Posta Kodu
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-indigo-500"
             id="postalCode"
             type="text"
-            placeholder="Enter postal code"
+            placeholder="Posta kodunu girin"
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
             required
@@ -92,13 +92,13 @@ const ShippingScreen = () => {
 
         <div className="mb-6">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="country">
-            Country
+            Ülke
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-indigo-500"
             id="country"
             type="text"
-            placeholder="Enter country"
+            placeholder="Ülkeyi girin"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
             required
@@ -109,7 +109,7 @@ const ShippingScreen = () => {
           className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full transition"
           type="submit"
         >
-          Continue to Payment
+          Ödemeye Devam Et
         </button>
       </form>
     </div>

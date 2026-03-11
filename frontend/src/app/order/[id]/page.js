@@ -37,7 +37,7 @@ const OrderScreen = ({ params }) => {
         const data = await res.json();
         
         if (!res.ok) {
-          throw new Error(data.message || 'Order not found');
+          throw new Error(data.message || 'Sipariş bulunamadı');
         }
         
         setOrder(data);
@@ -105,48 +105,48 @@ const OrderScreen = ({ params }) => {
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-2xl font-bold text-gray-900 mb-6 tracking-wide">Order {order._id}</h1>
+      <h1 className="text-2xl font-bold text-gray-900 mb-6 tracking-wide">Sipariş {order._id}</h1>
       
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-2/3">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-            <h2 className="text-xl font-semibold mb-4 text-gray-800 uppercase tracking-wider">Shipping</h2>
+            <h2 className="text-xl font-semibold mb-4 text-gray-800 uppercase tracking-wider">Teslimat</h2>
             <p className="text-gray-700 mb-2">
-              <strong className="font-medium">Name: </strong> {order.user.name}
+              <strong className="font-medium">İsim: </strong> {order.user.name}
             </p>
             <p className="text-gray-700 mb-4">
-              <strong className="font-medium">Email: </strong>{' '}
+              <strong className="font-medium">E-posta: </strong>{' '}
               <a href={`mailto:${order.user.email}`} className="text-indigo-600 hover:underline">{order.user.email}</a>
             </p>
             <p className="text-gray-700 mb-4">
-              <strong className="font-medium">Address: </strong>
+              <strong className="font-medium">Adres: </strong>
               {order.shippingAddress.address}, {order.shippingAddress.city}{' '}
               {order.shippingAddress.postalCode}, {order.shippingAddress.country}
             </p>
             {order.isDelivered ? (
-              <Message variant="success">Delivered on {order.deliveredAt.substring(0, 10)}</Message>
+              <Message variant="success">Teslim edildi: {order.deliveredAt.substring(0, 10)}</Message>
             ) : (
-              <Message variant="danger">Not Delivered</Message>
+              <Message variant="danger">Teslim edilmedi</Message>
             )}
           </div>
 
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-            <h2 className="text-xl font-semibold mb-4 text-gray-800 uppercase tracking-wider">Payment Method</h2>
+            <h2 className="text-xl font-semibold mb-4 text-gray-800 uppercase tracking-wider">Ödeme Yöntemi</h2>
             <p className="text-gray-700 mb-4">
-              <strong className="font-medium">Method: </strong>
+              <strong className="font-medium">Yöntem: </strong>
               {order.paymentMethod}
             </p>
             {order.isPaid ? (
-              <Message variant="success">Paid on {order.paidAt.substring(0, 10)}</Message>
+              <Message variant="success">Ödendi: {order.paidAt.substring(0, 10)}</Message>
             ) : (
-              <Message variant="danger">Not Paid</Message>
+              <Message variant="danger">Ödenmedi</Message>
             )}
           </div>
 
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h2 className="text-xl font-semibold mb-4 text-gray-800 uppercase tracking-wider">Order Items</h2>
+            <h2 className="text-xl font-semibold mb-4 text-gray-800 uppercase tracking-wider">Sipariş Edilen Ürünler</h2>
             {order.orderItems.length === 0 ? (
-              <Message>Order is empty</Message>
+              <Message>Sipariş boş</Message>
             ) : (
               <ul className="divide-y divide-gray-200">
                 {order.orderItems.map((item, index) => (
@@ -171,23 +171,23 @@ const OrderScreen = ({ params }) => {
 
         <div className="md:w-1/3">
           <div className="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200 sticky top-24">
-            <h2 className="text-xl font-semibold mb-6 text-gray-800 uppercase tracking-wider">Order Summary</h2>
+            <h2 className="text-xl font-semibold mb-6 text-gray-800 uppercase tracking-wider">Sipariş Özeti</h2>
             
             <div className="space-y-4">
               <div className="flex justify-between text-gray-600">
-                <span>Items</span>
+                <span>Ürünler</span>
                 <span>${order.itemsPrice.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-gray-600">
-                <span>Shipping</span>
+                <span>Kargo</span>
                 <span>${order.shippingPrice.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-gray-600">
-                <span>Tax</span>
+                <span>Vergi</span>
                 <span>${order.taxPrice.toFixed(2)}</span>
               </div>
               <div className="border-t border-gray-300 pt-4 flex justify-between font-bold text-lg text-gray-900">
-                <span>Total</span>
+                <span>Toplam</span>
                 <span>${order.totalPrice.toFixed(2)}</span>
               </div>
             </div>
@@ -199,7 +199,7 @@ const OrderScreen = ({ params }) => {
                   disabled={loadingPay}
                   className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 px-4 rounded shadow transition"
                 >
-                  {loadingPay ? 'Processing...' : `Pay $${order.totalPrice.toFixed(2)} (Mock)`}
+                  {loadingPay ? 'İşleniyor...' : `${order.totalPrice.toFixed(2)} $ Öde (Test)`}
                 </button>
               </div>
             )}
@@ -211,7 +211,7 @@ const OrderScreen = ({ params }) => {
                   onClick={deliverHandler}
                   className="w-full bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-4 rounded shadow transition"
                 >
-                  Mark As Delivered
+                  Teslim Edildi Olarak İşaretle
                 </button>
               </div>
             )}
