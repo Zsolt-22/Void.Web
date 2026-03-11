@@ -46,7 +46,7 @@ const OrderListScreen = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-2xl font-bold mb-6 text-gray-800 uppercase tracking-wide">Orders</h1>
+      <h1 className="text-2xl font-bold mb-6 text-gray-800 uppercase tracking-wide">Siparişler</h1>
       {error && <Message variant="danger">{error}</Message>}
       
       <div className="bg-white shadow-sm rounded-lg overflow-x-auto border border-gray-200">
@@ -54,11 +54,11 @@ const OrderListScreen = () => {
           <thead className="bg-gray-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Paid</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Delivered</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kullanıcı</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tarih</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Toplam</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ödendi</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Teslimat</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
             </tr>
           </thead>
@@ -68,7 +68,7 @@ const OrderListScreen = () => {
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{order._id}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{order.user && order.user.name}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{order.createdAt && order.createdAt.substring(0, 10)}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${order.totalPrice.toFixed(2)}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{order.totalPrice.toLocaleString('tr-TR', { style: 'currency', currency: 'TRY' })}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {order.isPaid ? (
                     <span className="text-green-600 font-semibold">{order.paidAt.substring(0, 10)}</span>
@@ -85,7 +85,7 @@ const OrderListScreen = () => {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-right">
                   <Link href={`/order/${order._id}`} className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-semibold rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Details
+                    Detaylar
                   </Link>
                 </td>
               </tr>

@@ -65,7 +65,7 @@ const UserListScreen = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-2xl font-bold mb-6 text-gray-800 uppercase tracking-wide">Users</h1>
+      <h1 className="text-2xl font-bold mb-6 text-gray-800 uppercase tracking-wide">Kullanıcılar</h1>
       {error && <Message variant="danger">{error}</Message>}
       
       <div className="bg-white shadow-sm rounded-lg overflow-x-auto border border-gray-200">
@@ -73,10 +73,10 @@ const UserListScreen = () => {
           <thead className="bg-gray-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Admin</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">İsim</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">E-posta</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Yönetici</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">İşlemler</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
@@ -97,10 +97,10 @@ const UserListScreen = () => {
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                   {/* User edit logic goes here if needed */}
                   <button
-                    className="text-red-600 hover:text-red-900 ml-4 focus:outline-none bg-red-100 p-2 rounded"
+                    className="text-red-600 hover:text-red-900 focus:outline-none bg-red-100 p-2 rounded transition-colors hover:bg-red-200"
                     onClick={() => deleteHandler(user._id)}
                   >
-                    Delete
+                    Sil
                   </button>
                 </td>
               </tr>

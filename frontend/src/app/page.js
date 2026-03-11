@@ -49,22 +49,30 @@ const HomeContent = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8 uppercase tracking-widest text-center">
-          Son Ürünler
-        </h2>
-        
-        {loading ? (
-          <Loader />
-        ) : error ? (
-          <Message variant="danger">{error}</Message>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {products.map((product) => (
-              <ProductCard key={product._id} product={product} />
-            ))}
-          </div>
-        )}
+      <div className="bg-black py-16 px-4">
+        <div className="max-w-7xl mx-auto -mt-24 relative z-10 bg-zinc-900/80 backdrop-blur-md rounded-3xl p-8 border border-zinc-800 shadow-2xl">
+          <h2 className="text-3xl font-bold text-white mb-8 uppercase tracking-widest text-center">
+            Son Ürünler
+          </h2>
+          
+          {loading ? (
+            <Loader />
+          ) : error && error !== 'Failed to fetch' ? (
+            <Message variant="danger">{error}</Message>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              {products.length > 0 ? (
+                products.map((product) => (
+                  <ProductCard key={product._id} product={product} />
+                ))
+              ) : (
+                <div className="col-span-full text-center py-10">
+                  <p className="text-zinc-500 text-lg">Henüz ürün bulunmuyor veya sunucu bağlanamadı.</p>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

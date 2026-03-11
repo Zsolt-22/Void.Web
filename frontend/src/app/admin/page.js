@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import { useAuth } from "@/context/AuthContext"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export default function Admin() {
   const [name, setName] = useState("")
@@ -9,10 +10,15 @@ export default function Admin() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const { userInfo } = useAuth()
+  const router = useRouter()
 
   useEffect(() => {
-    fetchProducts()
-  }, [])
+    if (!userInfo || !userInfo.isAdmin) {
+      router.push("/login")
+    } else {
+      fetchProducts()
+    }
+  }, [userInfo, router])
 
   const fetchProducts = async () => {
     try {
@@ -86,17 +92,17 @@ export default function Admin() {
         {/* Navigation / Header */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <h1 className="text-4xl font-black bg-gradient-to-r from-purple-400 via-fuchsia-500 to-indigo-500 bg-clip-text text-transparent">
-            Admin Command Center
+            Yönetim Merkezi
           </h1>
           <div className="flex gap-4">
             <Link href="/admin/dashboard" className="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-sm font-medium">
-              Dashboard
+              Panel
             </Link>
             <Link href="/admin/orderlist" className="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-sm font-medium">
-              Orders
+              Siparişler
             </Link>
             <Link href="/admin/userlist" className="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-sm font-medium">
-              Users
+              Kullanıcılar
             </Link>
           </div>
         </div>
@@ -123,7 +129,7 @@ export default function Admin() {
                 </div>
 
                 <div>
-                  <label className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-2 block font-bold">Fiyat ($)</label>
+                  <label className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-2 block font-bold">Fiyat (₺)</label>
                   <input
                     value={price}
                     placeholder="0.00"
@@ -181,7 +187,7 @@ export default function Admin() {
                             </div>
                           </td>
                           <td className="p-6 text-right font-bold text-indigo-400">
-                            ${product.price}
+                            {Number(product.price).toLocaleString('tr-TR', { style: 'currency', currency: 'TRY' })}
                           </td>
                           <td className="p-6 text-right">
                             <button

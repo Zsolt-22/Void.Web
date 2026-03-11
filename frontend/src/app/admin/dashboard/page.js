@@ -57,7 +57,7 @@ const DashboardScreen = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-2xl font-bold mb-8 text-gray-800 uppercase tracking-wide">Admin Dashboard</h1>
+      <h1 className="text-2xl font-bold mb-8 text-gray-800 uppercase tracking-wide">Yönetici Paneli</h1>
       {error && <Message variant="danger">{error}</Message>}
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -66,7 +66,7 @@ const DashboardScreen = () => {
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
           </div>
           <div>
-            <p className="text-gray-500 text-sm font-medium uppercase">Total Users</p>
+            <p className="text-gray-500 text-sm font-medium uppercase">Toplam Kullanıcı</p>
             <p className="text-2xl font-bold text-gray-900">{stats.users}</p>
           </div>
         </div>
@@ -76,7 +76,7 @@ const DashboardScreen = () => {
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
           </div>
           <div>
-            <p className="text-gray-500 text-sm font-medium uppercase">Total Products</p>
+            <p className="text-gray-500 text-sm font-medium uppercase">Toplam Ürün</p>
             <p className="text-2xl font-bold text-gray-900">{stats.products}</p>
           </div>
         </div>
@@ -86,7 +86,7 @@ const DashboardScreen = () => {
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
           </div>
           <div>
-            <p className="text-gray-500 text-sm font-medium uppercase">Total Orders</p>
+            <p className="text-gray-500 text-sm font-medium uppercase">Toplam Sipariş</p>
             <p className="text-2xl font-bold text-gray-900">{stats.orders}</p>
           </div>
         </div>
@@ -96,8 +96,8 @@ const DashboardScreen = () => {
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
           <div>
-            <p className="text-gray-500 text-sm font-medium uppercase">Total Revenue</p>
-            <p className="text-2xl font-bold text-gray-900">${stats.revenue.toFixed(2)}</p>
+            <p className="text-gray-500 text-sm font-medium uppercase">Toplam Kazanç</p>
+            <p className="text-2xl font-bold text-gray-900">{stats.revenue.toLocaleString('tr-TR', { style: 'currency', currency: 'TRY' })}</p>
           </div>
         </div>
       </div>
